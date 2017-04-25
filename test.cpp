@@ -26,6 +26,14 @@
 #define JSON11_ENABLE_DR1467_CANARY 0
 #endif
 
+#if defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wfloat-equal"
+#elif defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-equal"
+#endif
+
 /*
  * Beginning of standard source file, which makes use of the customizations above.
  */
@@ -279,3 +287,10 @@ int main(int argc, char **argv) {
 // Insert user-defined suffix code (function definitions, etc)
 // to set up a custom test suite
 JSON11_TEST_CPP_SUFFIX_CODE
+
+
+#if defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic pop
+#endif

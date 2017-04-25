@@ -68,6 +68,14 @@
     #endif
 #endif
 
+//#if defined(__clang__)
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wfloat-equal"
+//#elif defined(__GNUC__) || defined(__GNUG__)
+//#pragma GCC diagnostic push
+//#pragma GCC diagnostic ignored "-Wfloat-equal"
+//#endif
+
 namespace json11 {
 
 enum JsonParse {
@@ -230,3 +238,10 @@ protected:
 };
 
 } // namespace json11
+
+
+//#if defined(__clang__)
+//#pragma clang diagnostic pop
+//#elif defined(__GNUC__) || defined(__GNUG__)
+//#pragma GCC diagnostic pop
+//#endif
